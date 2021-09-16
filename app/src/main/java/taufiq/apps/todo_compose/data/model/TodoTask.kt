@@ -25,4 +25,5 @@ data class TodoTask(
     @ColumnInfo(name = TABLE_PRIORITY)
     val priority: Priority
 
+
 )
