@@ -1,5 +1,6 @@
 package taufiq.apps.todo_compose.data.repositories
 
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import taufiq.apps.todo_compose.data.TodoDao
 import taufiq.apps.todo_compose.data.model.TodoTask
@@ -9,6 +10,7 @@ import javax.inject.Inject
  * Created By Taufiq on 9/16/2021.
  *
  */
+@ViewModelScoped
 class TodoRepository @Inject constructor(private val todoDao: TodoDao) {
 
     val allTasks = todoDao.getAllTask()
