@@ -3,7 +3,7 @@ package taufiq.apps.todo_compose.navigations.destinations
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
+import androidx.navigation.compose.navArgument
 import taufiq.apps.todo_compose.utils.Action
 import taufiq.apps.todo_compose.utils.Constants
 
@@ -17,10 +17,10 @@ fun NavGraphBuilder.taskScreen(
 ) {
     composable(
         route = Constants.TASK_SCREEN,
-        arguments = listOf(navArgument(Constants.TASK_ARGUMENT_KEY){
+        arguments = listOf(navArgument(Constants.TASK_ARGUMENT_KEY) {
             type = NavType.IntType
         })
-    ){
+    ) {
 
     }
 }

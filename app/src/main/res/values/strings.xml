@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Todo-compose</string>
+    <string name="add_button">Add Button</string>
+    <string name="appbar_list_screen_title">Task</string>
 </resources>

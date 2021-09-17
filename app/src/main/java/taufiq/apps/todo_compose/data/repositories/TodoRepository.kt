@@ -36,7 +36,7 @@ class TodoRepository @Inject constructor(private val todoDao: TodoDao) {
         todoDao.deleteAllTask()
     }
 
-    suspend fun searchTask(query: String) {
+    fun searchTask(query: String) {
         todoDao.searchTasks(query)
     }
 
