@@ -16,7 +16,7 @@ import taufiq.apps.todo_compose.utils.Constants.LIST_SCREEN
  */
 
 fun NavGraphBuilder.listScreen(
-    navigateToTaskScreen: (Int) -> Unit
+    navigateToTaskScreen: (taskId: Int) -> Unit
 ) {
     composable(
         route = LIST_SCREEN,
