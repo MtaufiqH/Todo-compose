@@ -1,4 +1,4 @@
-package taufiq.apps.todo_compose.ui.screen
+package taufiq.apps.todo_compose.ui.screen.appbar
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -8,8 +8,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import taufiq.apps.todo_compose.R
 import taufiq.apps.todo_compose.data.model.Priority
-import taufiq.apps.todo_compose.ui.screen.appbar.ListAppBarAction
-import taufiq.apps.todo_compose.ui.screen.appbar.SortAction
 import taufiq.apps.todo_compose.ui.theme.topAppBarBackgroundColor
 import taufiq.apps.todo_compose.ui.theme.topAppBarContentColor
 
@@ -20,13 +18,14 @@ import taufiq.apps.todo_compose.ui.theme.topAppBarContentColor
 
 @Composable
 fun ListAppBar() {
-    DefaultListAppBar(onSearchClicked = {}, onSortClicked = {})
+    DefaultListAppBar(onSearchClicked = {}, onSortClicked = {}, onDeleteClick = {})
 }
 
 @Composable
 fun DefaultListAppBar(
     onSearchClicked: () -> Unit,
-    onSortClicked: (Priority) -> Unit
+    onSortClicked: (Priority) -> Unit,
+    onDeleteClick: () -> Unit
 ) {
     TopAppBar(
         title = {
@@ -36,8 +35,11 @@ fun DefaultListAppBar(
             )
         },
         actions = {
-            ListAppBarAction(onSearchClicked = onSearchClicked)
-            SortAction(onSortClicked = onSortClicked)
+            ListAppBarAction(
+                onSearchClicked = onSearchClicked,
+                onSortClicked = onSortClicked,
+                onDeleteClicked = onDeleteClick
+            )
         },
         backgroundColor = MaterialTheme.colors.topAppBarBackgroundColor,
     )
@@ -46,5 +48,5 @@ fun DefaultListAppBar(
 @Preview
 @Composable
 fun AppBarPreview() {
-    DefaultListAppBar(onSearchClicked = {}, onSortClicked = {})
+    DefaultListAppBar(onSearchClicked = {}, onSortClicked = {}, onDeleteClick =  {})
 }

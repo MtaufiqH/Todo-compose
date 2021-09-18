@@ -4,4 +4,5 @@
     <string name="appbar_list_screen_title">Task</string>
     <string name="search_action">search action</string>
     <string name="sort_action">sort action</string>
+    <string name="delete_all_action">delete all action</string>
 </resources>
