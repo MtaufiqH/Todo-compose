@@ -7,12 +7,14 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import taufiq.apps.todo_compose.R
 import taufiq.apps.todo_compose.ui.screen.appbar.ListAppBar
 import taufiq.apps.todo_compose.ui.theme.fabBackGroundColor
+import taufiq.apps.todo_compose.ui.viewmodels.TodoViewModel
+import taufiq.apps.todo_compose.utils.state.SearchAppBarState
 
 /**
  * Created By Taufiq on 9/17/2021.
@@ -20,10 +22,13 @@ import taufiq.apps.todo_compose.ui.theme.fabBackGroundColor
  */
 
 @Composable
-fun ListScreen(navigateToTaskScreen: (taskId: Int) -> Unit) {
+fun ListScreen(navigateToTaskScreen: (taskId: Int) -> Unit, viewModel: TodoViewModel) {
+
+    val searchAppBarState: SearchAppBarState by viewModel.searchAppBarState
+    val searchTextState: String by viewModel.searchTextState
 
     Scaffold(
-        topBar = { ListAppBar() },
+        topBar = { ListAppBar(viewModel = viewModel, searchAppBarState, searchTextState) },
         content = {},
         floatingActionButton = { ListFab(navigateToTaskScreen) },
 
@@ -46,9 +51,3 @@ fun ListFab(toTaskNavigator: (taskId: Int) -> Unit) {
     }
 }
 
-
-@Preview
-@Composable
-fun ListScreenPreview() {
-    ListScreen(navigateToTaskScreen = {})
-}

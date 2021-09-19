@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import taufiq.apps.todo_compose.navigations.destinations.listScreen
 import taufiq.apps.todo_compose.navigations.destinations.taskScreen
+import taufiq.apps.todo_compose.ui.viewmodels.TodoViewModel
 import taufiq.apps.todo_compose.utils.Constants.LIST_SCREEN
 
 /**
@@ -14,7 +15,7 @@ import taufiq.apps.todo_compose.utils.Constants.LIST_SCREEN
  */
 
 @Composable
-fun SetupNavigation(navHostController: NavHostController) {
+fun SetupNavigation(navHostController: NavHostController, viewModel: TodoViewModel) {
 
     val screen = remember(navHostController) {
         Screen(navHostController)
@@ -22,7 +23,7 @@ fun SetupNavigation(navHostController: NavHostController) {
 
     NavHost(navController = navHostController,startDestination = LIST_SCREEN) {
 
-        listScreen (navigateToTaskScreen = screen.task)
+        listScreen (navigateToTaskScreen = screen.task, viewModel)
 
         taskScreen(navigateToListScreen = screen.list)
 

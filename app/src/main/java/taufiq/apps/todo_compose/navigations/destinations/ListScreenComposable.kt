@@ -5,6 +5,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navArgument
 import taufiq.apps.todo_compose.ui.screen.ListScreen
+import taufiq.apps.todo_compose.ui.viewmodels.TodoViewModel
 import taufiq.apps.todo_compose.utils.Constants.LIST_ARGUMENT_KEY
 import taufiq.apps.todo_compose.utils.Constants.LIST_SCREEN
 
@@ -16,7 +17,8 @@ import taufiq.apps.todo_compose.utils.Constants.LIST_SCREEN
  */
 
 fun NavGraphBuilder.listScreen(
-    navigateToTaskScreen: (taskId: Int) -> Unit
+    navigateToTaskScreen: (taskId: Int) -> Unit,
+    viewModel: TodoViewModel
 ) {
     composable(
         route = LIST_SCREEN,
@@ -25,7 +27,7 @@ fun NavGraphBuilder.listScreen(
         })
     ){
 
-        ListScreen(navigateToTaskScreen = navigateToTaskScreen)
+        ListScreen(navigateToTaskScreen = navigateToTaskScreen, viewModel = viewModel)
 
     }
 }
